@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить автомобиль</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Добавить автомобиль</h1>
+    <form method="post">
+        <label>Модель:</label>
+        <input type="text" name="model" required>
+        <label>Марка:</label>
+        <input type="text" name="brand" required>
+        <label>Год:</label>
+        <input type="number" name="year" required>
+        <label>Цена за день:</label>
+        <input type="number" name="price" required>
+        <label>URL изображения:</label>
+        <input type="text" name="image_url" required>
+        <button type="submit">Добавить</button>
+    </form>
+<br>
+    <a href="/">Вернуться на главную</a>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Доступные автомобили</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Доступные автомобили</h1>
+    <div class="car-container">
+        {% for car in cars %}
+        <div class="car-card">
+            <img src="{{ car[5] }}" alt="{{ car[1] }}" width="300">
+            <h2>{{ car[2] }} - {{ car[1] }}</h2>
+            <p>Год выпуска: {{ car[3] }}</p>
+            <p>Цена за день: ${{ car[6] }}</p>
+            <a href="/rent_car/{{ car[0] }}" class="rent-button">Арендовать</a>
+        </div>
+        {% endfor %}
+    </div>
+    <br>
+    <a href="/">Вернуться на главную</a>
+<a href="/profile">Аккаунт</a>
+</body>
+</html>

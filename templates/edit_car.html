@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактировать автомобиль</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Редактировать автомобиль</h1>
+    <form method="post">
+        <label>Модель:</label>
+        <input type="text" name="model" value="{{ car[1] }}" required>
+        <label>Марка:</label>
+        <input type="text" name="brand" value="{{ car[2] }}" required>
+        <label>Год:</label>
+        <input type="number" name="year" value="{{ car[3] }}" required>
+        <label>Цена за день:</label>
+        <input type="number" name="price" value="{{ car[6] }}" required>
+        <label>URL изображения:</label>
+        <input type="text" name="image_url" value="{{ car[5] }}" required>
+        <button type="submit">Сохранить изменения</button>
+    </form>
+<br>
+    <a href="/">Вернуться на главную</a>
+</body>
+</html>

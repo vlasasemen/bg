@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель администратора</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Панель администратора</h1>
+    <a href="/admin/add_car" class="button">Добавить автомобиль</a>
+    <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Модель</th>
+                <th>Марка</th>
+                <th>Год</th>
+                <th>Цена за день</th>
+                <th>Доступность</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for car in cars %}
+            <tr>
+                <td>{{ car[0] }}</td>
+                <td>{{ car[1] }}</td>
+                <td>{{ car[2] }}</td>
+                <td>{{ car[3] }}</td>
+                <td>${{ car[6] }}</td>
+                <td>{% if car[4] %} Доступно {% else %} Недоступно {% endif %}</td>
+                <td>
+                    <a href="/admin/edit_car/{{ car[0] }}">Редактировать</a> |
+                    <a href="/admin/delete_car/{{ car[0] }}" onclick="return confirm('Удалить автомобиль?')">Удалить</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+<br>
+    <a href="/">Вернуться на главную</a>
+</body>
+</html>

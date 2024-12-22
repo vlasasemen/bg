@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваш профиль</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            margin-top: 30px;
+        }
+        .profile-container {
+            width: 80%;
+            max-width: 1000px;
+        }
+        .booking-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .booking-card img {
+            width: 300px;
+            height: auto;
+            object-fit: cover;
+        }
+        .booking-info {
+            padding: 20px;
+        }
+        .booking-info h2 {
+            margin: 0 0 10px;
+        }
+        .booking-info p {
+            margin: 5px 0;
+            color: #555;
+        }
+        .no-bookings {
+            margin: 50px 0;
+            font-size: 18px;
+            color: #777;
+        }
+        .return-link {
+            margin-top: 30px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .return-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ваши бронирования</h1>
+    <div class="profile-container">
+        {% if bookings %}
+            {% for booking in bookings %}
+            <div class="booking-card">
+                <img src="{{ booking[2] }}" alt="{{ booking[0] }}">
+                <div class="booking-info">
+                    <h2>{{ booking[1] }} - {{ booking[0] }}</h2>
+                    <p><strong>Дата начала:</strong> {{ booking[3] }}</p>
+                    <p><strong>Дата окончания:</strong> {{ booking[4] }}</p>
+                    <p><strong>Стоимость за день:</strong> ${{ booking[5] }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p class="no-bookings">У вас пока нет активных бронирований.</p>
+        {% endif %}
+    </div>
+    <a href="/cars" class="return-link">Вернуться к выбору автомобилей</a>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аренда автомобиля</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Аренда {{ car[1] }} - {{ car[2] }}</h1>
+    <form method="post">
+        <p>Цена за день: ${{ car[6] }}</p>
+        <label>Количество дней:</label>
+        <input type="number" name="days" min="1" required>
+        <button type="submit">Арендовать</button>
+    </form>
+    <br>
+    <a href="/cars">Вернуться к выбору автомобилей</a>
+</body>
+</html>
